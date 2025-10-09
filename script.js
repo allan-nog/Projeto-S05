@@ -41,7 +41,7 @@ function temaDark() {
   const cores = {
     '--cor-click': '#CEF09D',
     '--cor-sombra': '#9b0a59',
-    '--cor-text': '#FFFFFF',
+    '--cor-text': '#000',
     '--cor-back1': '#38184C',
     '--cor-back2': '#4f6a93',
     '--md-sys-color-primary': '#CEF09D'

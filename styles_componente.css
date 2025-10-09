@@ -1,0 +1,75 @@
+:root {
+  --frequencia: #126ae2;
+  --nota: #126ae2;
+  --prova: #126ae2;
+  --cor-text: black;
+  --fonte-padrao: "Arimo", sans-serif;
+}
+
+.comp-aula {
+  position: relative;
+  background-color: white;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 15px;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  color: var(--cor-text);
+  font-family: var(--fonte-padrao);
+}
+
+.titulo_aula {
+  font-weight: bold;
+  font-size: 15px;
+  color: var(--cor-text);
+  padding: 0 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+p {
+  font-family: var(--fonte-padrao);
+  font-weight: 400;
+  font-size: 11px;
+  color: var(--cor-text);
+  line-height: 1.5;
+  padding: 0 5px;
+}
+
+.lables {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.lable-prova,
+.lable-frequencia,
+.lable-nota {
+  padding: 7px 15px;
+  border-radius: 500px;
+  text-align: center;
+  color: white;
+}
+
+.lable-prova {
+  background-color: var(--prova);
+}
+
+.lable-frequencia {
+  background-color: var(--frequencia);
+}
+
+.lable-nota {
+  background-color: var(--nota);
+}
+
+.p_lable {
+  font-size: 11px;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

@@ -1,7 +1,11 @@
 @charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Arimo);
 
+/* ======================
+   VARIÁVEIS GLOBAIS (PORTAL)
+   ====================== */
 :root {
-  --cor-click: #126ae2; /* Click */
+  --cor-click: #126ae2; /* Click / primary */
   --cor-sombra: #0a599b; /* Azul Escuro */
   --cor-text: black; /* Preto */
   --cor-back1: #edf2f4; /* Azul claro */
@@ -15,59 +19,83 @@
   --frequencia: #126ae2;
   --nota: #126ae2;
   --prova: #126ae2;
+
+  /* Seção de reservas (rs-*) */
+  --rs-accent: #126ae2;
+  --rs-accent-700: #0846b2;
+  --rs-bg: #f4f6fb;
+  --rs-card: #ffffff;
+  --rs-text: #222831;
+  --rs-muted: #5a6170;
+  --rs-success: #2a9d8f;
+  --rs-danger: #d64545;
+
+  --rs-radius: 12px;
+  --rs-gap: 20px;
+  --rs-shadow-sm: 0 6px 18px rgba(15,18,20,0.06);
+  --rs-shadow-lg: 0 18px 50px rgba(15,18,20,0.08);
+
+  --rs-max-width: 1100px;
+  --rs-break-sm: 640px;
+  --rs-break-md: 900px;
 }
 
-* { box-sizing: border-box; }
-
+/* ======================
+   PORTAL CSS (mantive seu estilo original)
+   ====================== */
 body {
-  margin: 0;
+  margin: 0px;
   background-color: var(--cor-back1);
-  font-family: "Arimo", sans-serif;
-  color: var(--cor-text);
 }
 
 header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 8px 15px;
   position: relative;
+  height: 35px;
+  top: 0px;
+  left: 0px;
+  right: 0px;
 }
 
 #menu {
-  background: transparent;
-  border: none;
+  position: absolute;
+  left: 0px;
+  top: 10px;
+  margin-left: 15px;
   cursor: pointer;
-  padding: 6px;
 }
 
 #logo {
   position: absolute;
+  top: 13px;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%);
 }
 
-.svg_logo {
+.svg_logo{
   width: 80px;
 }
 
-.path_logo {
+.path_logo{
   fill: var(--cor-click);
 }
 
 #perfil {
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 6px;
+  position: absolute;
+  right: 0px;
+  top: 10px;
+  margin-right: 15px;
 }
 
 #mensagens {
+  position: relative;
   background-color: white;
+  top: 0px;
+  left: 0px;
+  right: 0px;
   padding: 15px;
   margin: 20px;
   border-radius: 10px;
-  box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 #user_name {
@@ -75,23 +103,25 @@ header {
   font-size: 17pt;
 }
 
-.mns_box {
+#mns_box {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  right: 0px;
   margin-top: 5px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
 }
 
-.mns_icon {
-  width: 22px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+#icon {
+  width: 18px;
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 5px;
 }
 
-.mns {
+#mns {
   padding: 5px;
-  flex: 1;
+  width: 80%;
+  display: inline-block;
 }
 
 .material-symbols-outlined {
@@ -100,11 +130,17 @@ header {
     'FILL' 0,
     'wght' 400,
     'GRAD' 0,
-    'opsz' 24;
+    'opsz' 24
 }
 
-.icoG { font-size: 30px; }
-.icoP { font-size: 18px; vertical-align: middle; }
+.icoG {
+  font-size: 30px;
+}
+
+.icoP {
+  font-size: 18px;
+  /* vertical-align: middle; */
+}
 
 .font {
   font-family: "Arimo", sans-serif;
@@ -112,32 +148,71 @@ header {
   font-weight: 400;
   font-style: normal;
   font-size: 11px;
-  color: var(--cor-text);
+  color: var(--cor-text)
 }
 
 #menu_aba {
+  height: 100%;
+  width: 100%;
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
   background-color: white;
-  z-index: 1000;
+  overflow-x: hidden;
+  transition: 0.5s;
+  z-index: 1;
   display: none;
-  overflow-y: auto;
   border-radius: 10px;
-  padding-top: 60px;
 }
 
 .menu_bot {
-  display: block;
-  width: 100%;
-  text-align: left;
+  position: relative;
   padding: 20px;
+  display: block;
+  cursor: pointer;
   font-family: "Arimo", sans-serif;
+  font-optical-sizing: auto;
   font-weight: 400;
+  font-style: normal;
   font-size: 14pt;
   color: var(--cor-click);
-  background: transparent;
-  border: none;
-  cursor: pointer;
+  transition: 0.5s;
+}
+
+#componentes {
+  position: relative;
+  background-color: white;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  padding: 15px;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+  font-family: "Arimo", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+  color: var(--cor-text);
+  padding-left: 5px;
+  padding-right: 5px
+}
+
+p {
+  font-family: "Arimo", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 11px;
+  color: var(--cor-text);
+  line-height: 1.5;
+  orphans: 3;
+  padding-left: 5px;
+  padding-right: 5px
 }
 
 .carousel-container {
@@ -146,13 +221,12 @@ header {
   background-color: white;
   border-radius: 10px;
   margin: 20px;
-  box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .carousel {
   display: flex;
   transition: transform 0.5s ease-in-out;
-  will-change: transform;
 }
 
 .card {
@@ -162,14 +236,12 @@ header {
 
 .card img {
   width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
 }
 
 .info {
-  padding: 10px;
+  padding: 10px
 }
 
 .icon {
@@ -178,52 +250,491 @@ header {
   margin-right: 2px;
   width: 18px;
   display: inline-block;
-  vertical-align: middle;
+  vertical-align: middle
 }
 
-.carousel-container > button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0,0,0,0.5);
-  color: white;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  font-size: 14px;
-  border-radius: 6px;
+.comp-aula {
+  position: relative;
+  background-color: white;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  padding: 15px;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
-#prevBtn { left: 10px; }
-#nextBtn { right: 10px; }
 
 .titulo_aula {
   font-family: "Arimo", sans-serif;
-  font-weight: 700;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
   font-size: 15px;
   color: var(--cor-text);
   padding-left: 5px;
   padding-right: 5px;
+
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.lables { display: flex; gap: 10px; }
-
-.lable-prova, .lable-frequencia, .lable-nota {
-  padding: 7px 15px;
-  border-radius: 500px;
-  text-align: center;
+.lables {
+  display: flex;
+  /*justify-content: space-between;*/
 }
 
-.lable-prova, .lable-frequencia, .lable-nota { background-color: var(--prova); color: white; }
+.lable-prova {
+  background-color: var(--prova);
+  padding: 7px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: 10px;
+  border-radius: 500px;
+  text-align: center
+}
+
+.lable-frequencia {
+  background-color: var(--frequencia);
+  padding: 7px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: 10px;
+  border-radius: 500px;
+}
+
+.lable-nota {
+  background-color: var(--prova);
+  padding: 7px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: 10px;
+  border-radius: 500px;
+}
 
 .p_lable {
   font-family: "Arimo", sans-serif;
+  font-optical-sizing: auto;
   font-weight: 400;
+  font-style: normal;
   font-size: 11px;
   color: white;
+
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+/* ------------------------------
+   BOTÕES - correção crítica
+   - neutralizamos a regra que colocava TODOS os buttons em position:absolute
+   - agora definimos um estilo base seguro e regras específicas para prev/next e study
+---------------------------------*/
+
+/* botão base (manter aparência genérica) */
+button {
+  position: relative; /* NÃO absoluto: mantém o elemento no fluxo */
+  background-color: #28a745;
+  color: white;
+  transform: translateY(0);
+  font-size: 10px;
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color .12s ease, transform .06s ease;
+}
+
+/* hover genérico */
+button:hover {
+  background-color: #218838;
+}
+
+/* botões do carrossel (prev/next) - posicionamento absoluto apenas para eles */
+#prevBtn, #nextBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255,255,255,0.92);
+  color: #333;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 18px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  border: 0;
+}
+
+/* ajuste de cores no hover dos botões do carrossel */
+#prevBtn:hover, #nextBtn:hover {
+  background-color: white;
+}
+
+/* -----------------------------------------------------------
+   RESTANTE DO CSS ORIGINAL (mantive igual ao que você enviou)
+----------------------------------------------------------- */
+
+#prevBtn { left: 10px; }
+#nextBtn { right: 10px; }
+
+#componentes {
+  position: relative;
+  background-color: white;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  padding: 15px;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+  font-family: "Arimo", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+  color: var(--cor-text);
+  padding-left: 5px;
+  padding-right: 5px
+}
+
+p {
+  font-family: "Arimo", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 11px;
+  color: var(--cor-text);
+  line-height: 1.5;
+  orphans: 3;
+  padding-left: 5px;
+  padding-right: 5px
+}
+
+/* carousel / cards (mantive) */
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  background-color: white;
+  border-radius: 10px;
+  margin: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.carousel {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.card {
+  min-width: 100%;
+  text-align: center;
+}
+
+.card img {
+  width: 100%;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.info {
+  padding: 10px
+}
+
+.icon {
+  font-size: 15px;
+  margin-left: 5px;
+  margin-right: 2px;
+  width: 18px;
+  display: inline-block;
+  vertical-align: middle
+}
+
+.comp-aula {
+  position: relative;
+  background-color: white;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  padding: 15px;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.titulo_aula {
+  font-family: "Arimo", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 15px;
+  color: var(--cor-text);
+  padding-left: 5px;
+  padding-right: 5px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lables {
+  display: flex;
+  /*justify-content: space-between;*/
+}
+
+.lable-prova {
+  background-color: var(--prova);
+  padding: 7px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: 10px;
+  border-radius: 500px;
+  text-align: center
+}
+
+.lable-frequencia {
+  background-color: var(--frequencia);
+  padding: 7px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: 10px;
+  border-radius: 500px;
+}
+
+.lable-nota {
+  background-color: var(--prova);
+  padding: 7px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: 10px;
+  border-radius: 500px;
+}
+
+.p_lable {
+  font-family: "Arimo", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 11px;
+  color: white;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ===========================
+   SEÇÃO: RESERVA (prefixo study-*)
+   =========================== */
+
+/* base / wrapper */
+.study-container {
+  max-width: 800px;
+  margin: 0 auto 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 0 16px;
+}
+
+/* Cards */
+.study-card {
+  background: var(--rs-card);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: var(--rs-shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Titles */
+.study-main-title {
+  font-family: "Arimo", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--rs-bg);
+  margin-top: 20px;
+  margin-bottom: 0;
+  text-align: center;
+  background-color: var(--rs-accent);
+  padding: 10px;
+}
+
+/* Inputs */
+.study-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.study-input-group label {
+  font-size: 13px;
+  color: var(--rs-muted);
+  font-weight: 600;
+  font-family: "Arimo", sans-serif;
+}
+
+.study-input-group input,
+.study-input-group select {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #e6e9ef;
+  font-size: 14px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(250,250,250,0.98));
+  outline: none;
+}
+
+.study-input-group input:focus,
+.study-input-group select:focus {
+  border-color: var(--rs-accent);
+  box-shadow: 0 6px 24px rgba(16,98,255,0.06);
+  transform: translateY(-1px);
+}
+
+/* feedback */
+.study-feedback {
+  font-size: 14px;
+  min-height: 20px;
+  margin-top: 6px;
+  color: var(--rs-danger);
+  font-weight: 600;
+}
+.study-feedback--error { color: var(--rs-danger); }
+.study-feedback.success { color: var(--rs-success); }
+
+/* feedbackReserva */
+.study-feedbackReserva {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--rs-accent-700);
+}
+
+/* study buttons */
+.study-btn {
+  display: inline-block;
+  background: var(--rs-accent);
+  color: white;
+  border: none;
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 14px;
+  transition: transform .08s ease, box-shadow .12s ease, background .12s ease;
+  box-shadow: 0 8px 20px rgba(16,98,255,0.08);
+  align-self: start; /* keeps button at start (left) inside card flow */
+}
+
+.study-btn:hover { background: var(--rs-accent-700); transform: translateY(-2px); }
+.study-btn:active { transform: translateY(0); }
+.study-btn:focus { outline: 3px solid rgba(15,98,255,0.12); outline-offset: 3px; }
+
+.study-btn-cancel {
+  background: #e6e9ef;
+  color: var(--rs-text);
+  box-shadow: none;
+}
+
+/* salas grid */
+.study-salas-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.study-sala {
+  background: linear-gradient(180deg, #ffffff, #fbfdff);
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid #eef3fb;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: space-between;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.study-sala:hover { transform: translateY(-6px); box-shadow: var(--rs-shadow-lg); }
+.study-sala h4 { margin: 0; font-size: 15px; font-weight: 800; color: #0b2340; font-family: "Arimo", sans-serif; }
+.study-sala p { margin: 0; color: var(--rs-muted); font-size: 13px; font-family: "Arimo", sans-serif; }
+
+.study-sala .study-badge {
+  display: inline-block;
+  font-size: 12px;
+  background: #eef7f4;
+  color: #147a6a;
+  padding: 6px 8px;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+/* modal */
+.study-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 120; /* acima do portal */
+  background: rgba(11,18,30,0.46);
+  justify-content: center;
+  align-items: center;
+}
+.study-modal[aria-hidden="false"] { display:flex; }
+
+.study-modal-content {
+  width: 100%;
+  max-width: 420px;
+  background: var(--rs-card);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: var(--rs-shadow-lg);
+  text-align: center;
+  transform-origin: center;
+  animation: study-pop 220ms cubic-bezier(.2,.9,.35,1);
+}
+@keyframes study-pop {
+  from { transform: translateY(6px) scale(.985); opacity: 0; }
+  to   { transform: translateY(0) scale(1); opacity: 1; }
+}
+.study-modal-content h3 { margin-top: 4px; margin-bottom: 8px; font-size: 17px; }
+.study-modal-content p { margin: 8px 0; color: var(--rs-muted); font-weight:600; }
+#study-modalErro { margin-top: 6px; min-height: 18px; font-weight:700; color: var(--rs-danger); }
+
+.study-modal-btns {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 14px;
+}
+
+/* utils study */
+.study-hidden { display: none !important; }
+.study-center { text-align: center; }
+
+/* responsive */
+@media (max-width: 980px){
+  .study-container{ padding: 0 18px; }
+  .study-salas-grid{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 580px){
+  .study-salas-grid{ grid-template-columns: 1fr; }
+  .study-card{ padding: 16px; }
+  .study-main-title{ font-size: 16px; }
+}
+
+/* accessibility / focus */
+:focus { outline: none; }
+button:focus, select:focus, input:focus { box-shadow: 0 6px 24px rgba(15,98,255,0.06); outline: 3px solid rgba(15,98,255,0.12); outline-offset: 3px; }
+
+/* small adjustments to keep portal spacing */
+.card + .card { margin-top: 6px; }
+
+/* reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .study-sala, .study-btn, .study-modal-content { transition: none !important; animation: none !important; }
 }
